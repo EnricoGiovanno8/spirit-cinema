@@ -4,4 +4,10 @@
 
 html {
   font-family: 'Montserrat', sans-serif;
+  scrollbar-width: none;
+  background-color: #222831;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

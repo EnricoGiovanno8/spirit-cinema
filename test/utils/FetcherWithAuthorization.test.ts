@@ -15,7 +15,7 @@ describe('#FetcherWithAuthorization', () => {
     };
     mockedAxios.get.mockResolvedValue(expectedResponse);
 
-    const actualData = await fetcherWithAuthorization(url);
+    const actualData = await fetcherWithAuthorization(url)();
 
     expect(actualData).toEqual(expectedResponse.data);
   });

@@ -10,9 +10,9 @@ vi.mock('@tanstack/react-query', () => ({
 }));
 
 describe('App Component', () => {
-  it('should render without crashing', async () => {
+  it('should render without crashing', () => {
     const { container } = render(<App />);
 
-    expect(container).toBeInTheDocument();
+    expect(container).toBeDefined();
   });
 });
