@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { describe, expect, it, Mocked, vi } from 'vitest';
 
-import FetcherWithAuthorization from '../../src/utils/FetcherWithAuthorization';
+import fetcherWithAuthorization from '../../src/utils/FetcherWithAuthorization';
 
 vi.mock('axios');
 
@@ -15,7 +15,7 @@ describe('#FetcherWithAuthorization', () => {
     };
     mockedAxios.get.mockResolvedValue(expectedResponse);
 
-    const actualData = await FetcherWithAuthorization()(url);
+    const actualData = await fetcherWithAuthorization(url);
 
     expect(actualData).toEqual(expectedResponse.data);
   });
