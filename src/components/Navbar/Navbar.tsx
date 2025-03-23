@@ -1,11 +1,15 @@
+import { Link } from 'react-router-dom';
+
 const Navbar = (): React.ReactNode => {
   return (
     <div className="bg-base-100" data-testid="navbar">
       <div className="navbar shadow-sm max-w-7xl mx-auto px-4 md:px-8">
         <div className="navbar-start" />
-        <div className="navbar-center">
-          <a className="btn btn-ghost text-2xl text-spirit-blue">SpiritCinema</a>
-        </div>
+        <Link to="/">
+          <div className="navbar-center">
+            <p className="btn btn-ghost text-2xl text-spirit-blue">SpiritCinema</p>
+          </div>
+        </Link>
         <div className="navbar-end">
           <label className="input">
             <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
