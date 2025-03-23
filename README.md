@@ -1,54 +1,141 @@
-# React + TypeScript + Vite
+# Movie Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Movie Explorer is a web application that allows users to browse movies categorized into different sections such as:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Now Playing**
+- **Popular**
+- **Top Rated**
+- **Upcoming**
 
-## Expanding the ESLint configuration
+Users can also search for movies by name and view detailed information about a selected movie by clicking on a movie card.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Browse Movies:** View lists of movies currently playing, popular movies, top-rated movies, and upcoming releases.
+- **Search Movies:** Search for movies by title.
+- **Movie Details:** Click on a movie to view its detailed information, including title, overview, genres, release date, and ratings.
+
+## API Integration
+
+This application utilizes [The Movie Database (TMDb) API](https://developers.themoviedb.org/3/getting-started/introduction) to fetch movie data. The following API endpoints are used:
+
+### Base URL
+
+```
+https://api.themoviedb.org/3
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Endpoints
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Now Playing Movies:** `/movie/now_playing`
+- **Popular Movies:** `/movie/popular`
+- **Top Rated Movies:** `/movie/top_rated`
+- **Upcoming Movies:** `/movie/upcoming`
+- **Search Movies:** `/search/movie`
+- **Movie Details:** `/movie/{movie_id}`
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## API Response Structures
+
+### Movie List Responses
+
+The following APIs return lists of movies:
+
+- Now Playing
+- Popular
+- Top Rated
+- Upcoming
+- Search Movies
+
+#### **Response Type:**
+
+```typescript
+interface Movie {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
+interface MovieQueryResult {
+  results: Movie[];
+}
 ```
+
+### Movie Detail Response
+
+#### **Response Type:**
+
+```typescript
+interface MovieDetailResult {
+  adult: boolean;
+  backdrop_path: string | null;
+  belongs_to_collection: null | object;
+  budget: number;
+  genres: { id: number; name: string }[];
+  homepage: string;
+  id: number;
+  imdb_id: string;
+  origin_country: string[];
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  production_companies: { id: number; name: string; logo_path?: string; origin_country: string }[];
+  production_countries: { iso_3166_1: string; name: string }[];
+  release_date: string;
+  revenue: number;
+  runtime: number;
+  spoken_languages: { english_name: string; iso_639_1: string; name: string }[];
+  status: string;
+  tagline: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+```
+
+## How to Use
+
+1. Open the website.
+2. Browse movies in different categories (Now Playing, Popular, Top Rated, Upcoming).
+3. Use the search bar to find a movie by title.
+4. Click on a movie card to view detailed information.
+
+## Technologies Used
+
+- **Frontend:** React.js with TypeScript and Tailwind CSS
+- **State Management:** TanStack Query
+- **Routing:** React Router
+- **Testing:** Vitest with React Testing Library
+- **API:** TMDb API
+
+## Setup Instructions
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/EnricoGiovanno8/spirit-cinema.git
+   ```
+2. Install dependencies:
+   ```sh
+   yarn
+   ```
+3. Start the development server:
+   ```sh
+   yarn dev
+   ```
+4. Open the application in your browser.
+
