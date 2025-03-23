@@ -1,19 +1,42 @@
 import { useQuery } from '@tanstack/react-query';
 
 import MovieCarousel from '../../components/MovieCarousel';
-import { NOW_PLAYING_MOVIE_LIST_URL } from '../../constants/apiUri';
+import {
+  NOW_PLAYING_MOVIE_LIST_URL,
+  POPULAR_MOVIE_LIST_URL,
+  TOP_RATED_MOVIE_LIST_URL,
+  UPCOMING_MOVIE_LIST_URL,
+} from '../../constants/apiUri';
 import { MovieQueryResult } from '../../index.types';
 import fetcherWithAuthorization from '../../utils/FetcherWithAuthorization';
 
 const HomePage = () => {
-  const nowPlayingQuery = useQuery<MovieQueryResult>({
-    queryKey: ['nowPlaying'],
+  const nowPlayingMovieQuery = useQuery<MovieQueryResult>({
+    queryKey: ['nowPlayingMovie'],
     queryFn: fetcherWithAuthorization(NOW_PLAYING_MOVIE_LIST_URL),
+  });
+  const popularMovieQuery = useQuery<MovieQueryResult>({
+    queryKey: ['popularMovie'],
+    queryFn: fetcherWithAuthorization(POPULAR_MOVIE_LIST_URL),
+  });
+  const topRatedMovieQuery = useQuery<MovieQueryResult>({
+    queryKey: ['nowPlayingMovie'],
+    queryFn: fetcherWithAuthorization(TOP_RATED_MOVIE_LIST_URL),
+  });
+  const upcomingMovieQuery = useQuery<MovieQueryResult>({
+    queryKey: ['upcomingMovie'],
+    queryFn: fetcherWithAuthorization(UPCOMING_MOVIE_LIST_URL),
   });
 
   return (
-    <div className="p-4 max-w-7xl mx-auto">
-      <MovieCarousel title="Now Playing" query={nowPlayingQuery} />
+    <div className="flex flex-col p-4 md:p-8 py-8 md:py-12 max-w-7xl mx-auto gap-16">
+      <MovieCarousel title="Now Playing" query={nowPlayingMovieQuery} />
+
+      <MovieCarousel title="Popular" query={popularMovieQuery} />
+
+      <MovieCarousel title="Top Rated" query={topRatedMovieQuery} />
+
+      <MovieCarousel title="Upcoming" query={upcomingMovieQuery} />
     </div>
   );
 };

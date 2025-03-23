@@ -17,5 +17,8 @@ describe('HomePage', () => {
     const { getByText } = render(<HomePage />);
 
     expect(getByText('Now Playing')).toBeDefined();
+    expect(getByText('Popular')).toBeDefined();
+    expect(getByText('Top Rated')).toBeDefined();
+    expect(getByText('Upcoming')).toBeDefined();
   });
 });
