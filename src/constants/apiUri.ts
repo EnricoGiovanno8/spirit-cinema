@@ -10,7 +10,10 @@ const UPCOMING_MOVIE_LIST_URL = SERVER_URL + '/movie/upcoming';
 
 const SEARCH_MOVIE_URL = SERVER_URL + '/search/movie';
 
+const MOVIE_DETAIL_URL = SERVER_URL + '/movie';
+
 export {
+  MOVIE_DETAIL_URL,
   NOW_PLAYING_MOVIE_LIST_URL,
   POPULAR_MOVIE_LIST_URL,
   SEARCH_MOVIE_URL,

@@ -3,7 +3,7 @@ import { UseQueryResult } from '@tanstack/react-query';
 import { render } from '@testing-library/react';
 import React from 'react';
 import * as ReactRouterDOM from 'react-router-dom';
-import { SetURLSearchParams } from 'react-router-dom';
+import { RouterProvider, SetURLSearchParams } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import appRoutes from '../../../src/appRoutes';
@@ -48,7 +48,7 @@ describe('SearchPage', () => {
       unknown
     >);
 
-    const { getByTestId } = render(<ReactRouterDOM.RouterProvider router={router} />);
+    const { getByTestId } = render(<RouterProvider router={router} />);
 
     expect(getByTestId('loading')).toBeDefined();
   });
@@ -63,7 +63,7 @@ describe('SearchPage', () => {
       error: new Error('Failed to fetch'),
     } as UseQueryResult<MovieQueryResult, unknown>);
 
-    const { getByText } = render(<ReactRouterDOM.RouterProvider router={router} />);
+    const { getByText } = render(<RouterProvider router={router} />);
 
     expect(getByText('Something went wrong')).toBeDefined();
   });
@@ -78,7 +78,7 @@ describe('SearchPage', () => {
       data: { results: [] },
     } as unknown as UseQueryResult<MovieQueryResult, unknown>);
 
-    const { getByText } = render(<ReactRouterDOM.RouterProvider router={router} />);
+    const { getByText } = render(<RouterProvider router={router} />);
 
     expect(
       getByText(
@@ -101,7 +101,7 @@ describe('SearchPage', () => {
       },
     } as UseQueryResult<MovieQueryResult, unknown>);
 
-    const { getByAltText } = render(<ReactRouterDOM.RouterProvider router={router} />);
+    const { getByAltText } = render(<RouterProvider router={router} />);
 
     expect(getByAltText('Spiderman')).toBeDefined();
   });

@@ -1,4 +1,4 @@
-import { HomePage, LayoutPage, SearchPage } from './pages';
+import { HomePage, LayoutPage, MovieDetailPage, SearchPage } from './pages';
 
 const appRoutes = [
   {
@@ -7,6 +7,15 @@ const appRoutes = [
     children: [
       { path: '/', element: <HomePage /> },
       { path: '/search', element: <SearchPage /> },
+      {
+        path: '/movieDetail',
+        children: [
+          {
+            path: ':id',
+            element: <MovieDetailPage />,
+          },
+        ],
+      },
     ],
   },
 ];

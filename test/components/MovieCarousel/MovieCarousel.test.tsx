@@ -56,9 +56,14 @@ describe('MovieCarousel', () => {
       error: null,
     };
     const title = 'Now Playing';
+    const navigate = vi.fn();
 
     const { getByText } = render(
-      <MovieCarousel title={title} query={query as UseQueryResult<MovieQueryResult, Error>} />
+      <MovieCarousel
+        title={title}
+        query={query as UseQueryResult<MovieQueryResult, Error>}
+        navigate={navigate}
+      />
     );
 
     expect(getByText('Loading...')).toBeDefined();
@@ -108,9 +113,14 @@ describe('MovieCarousel', () => {
       error: { message: 'message' },
     };
     const title = 'Now Playing';
+    const navigate = vi.fn();
 
     const { getByText } = render(
-      <MovieCarousel title={title} query={query as UseQueryResult<MovieQueryResult, Error>} />
+      <MovieCarousel
+        title={title}
+        query={query as UseQueryResult<MovieQueryResult, Error>}
+        navigate={navigate}
+      />
     );
 
     expect(getByText('Error loading movies')).toBeDefined();
@@ -160,9 +170,14 @@ describe('MovieCarousel', () => {
       error: null,
     };
     const title = 'Now Playing';
+    const navigate = vi.fn();
 
     const { getByText, getAllByRole } = render(
-      <MovieCarousel title={title} query={query as UseQueryResult<MovieQueryResult, Error>} />
+      <MovieCarousel
+        title={title}
+        query={query as UseQueryResult<MovieQueryResult, Error>}
+        navigate={navigate}
+      />
     );
 
     expect(getByText(title)).toBeDefined();

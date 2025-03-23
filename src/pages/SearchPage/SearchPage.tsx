@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { MovieCard } from '../../components';
 import { SEARCH_MOVIE_URL } from '../../constants/apiUri';
@@ -7,6 +7,7 @@ import { MovieQueryResult } from '../../index.types';
 import fetcherWithAuthorization from '../../utils/fetcherWithAuthorization';
 
 const SearchPage = () => {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const keyword = searchParams.get('keyword');
 
@@ -50,7 +51,12 @@ const SearchPage = () => {
         {searchMovieQuery.data?.results.map(
           (movie) =>
             movie.backdrop_path && (
-              <MovieCard id={movie.id} title={movie.title} posterPath={movie.poster_path} />
+              <MovieCard
+                id={movie.id}
+                title={movie.title}
+                posterPath={movie.poster_path}
+                navigate={navigate}
+              />
             )
         )}
       </div>

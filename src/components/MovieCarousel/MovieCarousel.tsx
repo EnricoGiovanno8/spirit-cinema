@@ -12,6 +12,7 @@ const renderMovies = ({
   showRightArrow,
   setShowLeftArrow,
   setShowRightArrow,
+  navigate,
 }: RenderMoviesParams) => {
   if (query.isLoading) return <p>Loading...</p>;
 
@@ -36,7 +37,12 @@ const renderMovies = ({
         {query.data?.results.map(
           (movie) =>
             movie.backdrop_path && (
-              <MovieCard id={movie.id} title={movie.title} posterPath={movie.poster_path} />
+              <MovieCard
+                id={movie.id}
+                title={movie.title}
+                posterPath={movie.poster_path}
+                navigate={navigate}
+              />
             )
         )}
       </div>
@@ -57,7 +63,7 @@ const renderMovies = ({
   );
 };
 
-const MovieCarousel = ({ title, query }: MovieCarouselProps): React.ReactNode => {
+const MovieCarousel = ({ title, query, navigate }: MovieCarouselProps): React.ReactNode => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
@@ -72,6 +78,7 @@ const MovieCarousel = ({ title, query }: MovieCarouselProps): React.ReactNode =>
         showRightArrow,
         setShowLeftArrow,
         setShowRightArrow,
+        navigate,
       })}
     </section>
   );

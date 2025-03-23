@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 import { MovieCarousel } from '../../components';
 import {
@@ -11,6 +12,8 @@ import { MovieQueryResult } from '../../index.types.tsx';
 import fetcherWithAuthorization from '../../utils/fetcherWithAuthorization.ts';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   const nowPlayingMovieQuery = useQuery<MovieQueryResult>({
     queryKey: ['nowPlayingMovie'],
     queryFn: fetcherWithAuthorization(NOW_PLAYING_MOVIE_LIST_URL),
@@ -30,13 +33,13 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col p-4 md:p-8 py-8 md:py-12 gap-10 md:gap-14 max-w-7xl mx-auto">
-      <MovieCarousel title="Now Playing" query={nowPlayingMovieQuery} />
+      <MovieCarousel title="Now Playing" query={nowPlayingMovieQuery} navigate={navigate} />
 
-      <MovieCarousel title="Popular" query={popularMovieQuery} />
+      <MovieCarousel title="Popular" query={popularMovieQuery} navigate={navigate} />
 
-      <MovieCarousel title="Top Rated" query={topRatedMovieQuery} />
+      <MovieCarousel title="Top Rated" query={topRatedMovieQuery} navigate={navigate} />
 
-      <MovieCarousel title="Upcoming" query={upcomingMovieQuery} />
+      <MovieCarousel title="Upcoming" query={upcomingMovieQuery} navigate={navigate} />
     </div>
   );
 };
