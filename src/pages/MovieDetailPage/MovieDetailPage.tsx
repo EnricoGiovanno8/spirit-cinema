@@ -49,7 +49,7 @@ const MovieDetailPage = () => {
 
           <div className="mt-4">
             <p className="text-white">
-              <strong>Genres:</strong>
+              <strong>Genres: </strong>
               {data.genres.map((genre: { id: number; name: string }) => genre.name).join(', ')}
             </p>
             <p className="text-white">
