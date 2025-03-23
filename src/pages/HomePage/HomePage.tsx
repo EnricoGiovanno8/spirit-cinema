@@ -32,7 +32,7 @@ const HomePage = () => {
   });
 
   return (
-    <div className="flex flex-col p-4 md:p-8 py-8 md:py-12 gap-10 md:gap-14 max-w-md md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto">
+    <div className="flex flex-col p-4 md:p-8 py-8 md:py-12 gap-10 md:gap-14 max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto">
       <MovieCarousel title="Now Playing" query={nowPlayingMovieQuery} navigate={navigate} />
 
       <MovieCarousel title="Popular" query={popularMovieQuery} navigate={navigate} />
