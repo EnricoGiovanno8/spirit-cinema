@@ -14,5 +14,11 @@ html {
 }
 
 @theme {
-  --color-spirit-blue: #B7E0FF;
+  --color-spirit-blue: #b7e0ff;
+}
+
+#root {
+  display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
 }

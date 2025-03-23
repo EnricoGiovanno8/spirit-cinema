@@ -4,9 +4,11 @@ import { Navbar } from '../../components';
 
 const LayoutPage = () => {
   return (
-    <div>
+    <div className="flex flex-1 flex-col">
       <Navbar />
-      <Outlet />
+      <div className="flex flex-1">
+        <Outlet />
+      </div>
     </div>
   );
 };
