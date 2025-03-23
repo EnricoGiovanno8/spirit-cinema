@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { describe, expect, it, Mocked, vi } from 'vitest';
 
-import fetcherWithAuthorization from '../../src/utils/FetcherWithAuthorization';
+import fetcherWithAuthorization from '../../src/utils/fetcherWithAuthorization';
 
 vi.mock('axios');
 

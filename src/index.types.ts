@@ -19,4 +19,4 @@ interface MovieQueryResult {
   results: Array<Movie>;
 }
 
-export type { Movie, MovieQueryResult };
+export type { MovieQueryResult };

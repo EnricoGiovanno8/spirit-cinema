@@ -8,7 +8,7 @@ import {
   UPCOMING_MOVIE_LIST_URL,
 } from '../../constants/apiUri';
 import { MovieQueryResult } from '../../index.types.tsx';
-import fetcherWithAuthorization from '../../utils/FetcherWithAuthorization';
+import fetcherWithAuthorization from '../../utils/fetcherWithAuthorization.ts';
 
 const HomePage = () => {
   const nowPlayingMovieQuery = useQuery<MovieQueryResult>({

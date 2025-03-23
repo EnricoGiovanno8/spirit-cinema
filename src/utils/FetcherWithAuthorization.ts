@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-const FetcherWithAuthorization = (url: string, configs?: AxiosRequestConfig) => async () => {
+const fetcherWithAuthorization = (url: string, configs?: AxiosRequestConfig) => async () => {
   const token = import.meta.env.VITE_API_TOKEN;
 
   const config: AxiosRequestConfig = {
@@ -13,4 +13,4 @@ const FetcherWithAuthorization = (url: string, configs?: AxiosRequestConfig) => 
   return response.data;
 };
 
-export default FetcherWithAuthorization;
+export default fetcherWithAuthorization;

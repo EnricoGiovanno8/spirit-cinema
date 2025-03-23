@@ -1,7 +1,7 @@
 import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { handleImageError, scroll } from '../../../src/components/MovieCarousel/MovieCarousel.handler';
+import { scroll } from '../../../src/components/MovieCarousel/MovieCarousel.handler';
 import { ArrowDirection } from '../../../src/components/MovieCarousel/MovieCarousel.types';
 
 describe('MovieCarousel handler', () => {
@@ -81,23 +81,6 @@ describe('MovieCarousel handler', () => {
       expect(params.setShowLeftArrow).not.toHaveBeenCalled();
       expect(params.setShowRightArrow).not.toHaveBeenCalled();
       vi.useRealTimers();
-    });
-  });
-
-  describe('#handleImageError', () => {
-    it('should set display to none', () => {
-      const expectedResult = 'none';
-      const event = {
-        currentTarget: {
-          style: {
-            display: 'flex',
-          },
-        },
-      };
-
-      handleImageError(event as React.SyntheticEvent<HTMLImageElement, Event>);
-
-      expect(event.currentTarget.style.display).toEqual(expectedResult);
     });
   });
 });

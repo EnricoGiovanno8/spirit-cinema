@@ -1,8 +1,8 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { useRef, useState } from 'react';
 
-import { Movie } from '../../index.types.tsx';
-import { handleImageError, scroll } from './MovieCarousel.handler';
+import MovieCard from '../MovieCard/MovieCard.tsx';
+import { scroll } from './MovieCarousel.handler';
 import { ArrowDirection, MovieCarouselProps, RenderMoviesParams } from './MovieCarousel.types';
 
 const renderMovies = ({
@@ -33,17 +33,11 @@ const renderMovies = ({
         </button>
       )}
       <div ref={scrollContainerRef} className="flex gap-4 overflow-hidden">
-        {query.data?.results.map((movie: Movie) =>
-          movie.backdrop_path ? (
-            <div key={movie.id} className="flex-shrink-0 w-40 md:w-52">
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className="rounded-lg shadow-lg w-full"
-                onError={handleImageError}
-              />
-            </div>
-          ) : null
+        {query.data?.results.map(
+          (movie) =>
+            movie.backdrop_path && (
+              <MovieCard id={movie.id} title={movie.title} posterPath={movie.poster_path} />
+            )
         )}
       </div>
       {showRightArrow && (
