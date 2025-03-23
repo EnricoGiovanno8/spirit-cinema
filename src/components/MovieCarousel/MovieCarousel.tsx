@@ -1,7 +1,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { useRef, useState } from 'react';
 
-import { Movie } from '../../index.types';
+import { Movie } from '../../index.types.tsx';
 import { handleImageError, scroll } from './MovieCarousel.handler';
 import { ArrowDirection, MovieCarouselProps, RenderMoviesParams } from './MovieCarousel.types';
 

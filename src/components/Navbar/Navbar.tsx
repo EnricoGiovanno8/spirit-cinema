@@ -1,8 +1,14 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { handleKeyDown, handleOnChange } from './Navbar.handler';
 
 const Navbar = (): React.ReactNode => {
+  const [keyword, setKeyword] = useState<string>('');
+  const navigate = useNavigate();
+
   return (
-    <div className="bg-base-100" data-testid="navbar">
+    <div className="bg-gray-900" data-testid="navbar">
       <div className="navbar shadow-sm max-w-7xl mx-auto px-4 md:px-8">
         <div className="navbar-start" />
         <Link to="/">
@@ -24,7 +30,14 @@ const Navbar = (): React.ReactNode => {
                 <path d="m21 21-4.3-4.3"></path>
               </g>
             </svg>
-            <input type="search" required placeholder="Search movies" />
+            <input
+              type="search"
+              required
+              placeholder="Search for a movie"
+              value={keyword}
+              onChange={handleOnChange(setKeyword)}
+              onKeyDown={handleKeyDown(navigate, keyword)}
+            />
           </label>
         </div>
       </div>

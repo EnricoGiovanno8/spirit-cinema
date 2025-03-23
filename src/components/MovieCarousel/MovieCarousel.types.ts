@@ -1,6 +1,6 @@
 import { UseQueryResult } from '@tanstack/react-query';
 
-import { MovieQueryResult } from '../../index.types';
+import { MovieQueryResult } from '../../index.types.tsx';
 
 export enum ArrowDirection {
   Left = 'left',

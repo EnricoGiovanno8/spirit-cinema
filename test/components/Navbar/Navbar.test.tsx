@@ -14,6 +14,6 @@ describe('Navbar', () => {
     );
 
     expect(getByText('SpiritCinema')).toBeDefined();
-    expect(getByPlaceholderText('Search movies')).toBeDefined();
+    expect(getByPlaceholderText('Search for a movie')).toBeDefined();
   });
 });

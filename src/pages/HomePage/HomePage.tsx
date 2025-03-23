@@ -7,7 +7,7 @@ import {
   TOP_RATED_MOVIE_LIST_URL,
   UPCOMING_MOVIE_LIST_URL,
 } from '../../constants/apiUri';
-import { MovieQueryResult } from '../../index.types';
+import { MovieQueryResult } from '../../index.types.tsx';
 import fetcherWithAuthorization from '../../utils/FetcherWithAuthorization';
 
 const HomePage = () => {
