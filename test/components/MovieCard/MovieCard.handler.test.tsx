@@ -27,7 +27,7 @@ describe('MovieCard handler', () => {
 
       handleClick(navigate, id)();
 
-      expect(navigate).toHaveBeenCalledWith(`/movieDetail/${id}`);
+      expect(navigate).toHaveBeenCalledWith(`/movie-detail/${id}`);
     });
   });
 });

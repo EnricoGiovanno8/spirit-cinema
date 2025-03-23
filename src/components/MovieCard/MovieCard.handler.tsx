@@ -5,7 +5,7 @@ const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) 
 };
 
 const handleClick = (navigate: NavigateFunction, id: number) => () => {
-  navigate(`/movieDetail/${id}`);
+  navigate(`/movie-detail/${id}`);
 };
 
 export { handleClick,handleImageError };

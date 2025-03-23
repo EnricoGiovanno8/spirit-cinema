@@ -8,7 +8,7 @@ const appRoutes = [
       { path: '/', element: <HomePage /> },
       { path: '/search', element: <SearchPage /> },
       {
-        path: '/movieDetail',
+        path: '/movie-detail',
         children: [
           {
             path: ':id',

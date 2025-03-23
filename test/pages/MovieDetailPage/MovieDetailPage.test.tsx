@@ -34,7 +34,7 @@ describe('MovieDetailPage', () => {
 
   const createRouter = () =>
     ReactRouterDOM.createMemoryRouter(appRoutes, {
-      initialEntries: ['/movieDetail/291611'],
+      initialEntries: ['/movie-detail/291611'],
       initialIndex: 0,
     });
 
