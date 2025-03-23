@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import MovieCarousel from '../../components/MovieCarousel';
+import { MovieCarousel, Navbar } from '../../components';
 import {
   NOW_PLAYING_MOVIE_LIST_URL,
   POPULAR_MOVIE_LIST_URL,
@@ -29,14 +29,17 @@ const HomePage = () => {
   });
 
   return (
-    <div className="flex flex-col p-4 md:p-8 py-8 md:py-12 max-w-7xl mx-auto gap-16">
-      <MovieCarousel title="Now Playing" query={nowPlayingMovieQuery} />
+    <div>
+      <Navbar />
+      <div className="flex flex-col p-4 md:p-8 py-8 md:py-12 gap-10 md:gap-14 max-w-7xl mx-auto">
+        <MovieCarousel title="Now Playing" query={nowPlayingMovieQuery} />
 
-      <MovieCarousel title="Popular" query={popularMovieQuery} />
+        <MovieCarousel title="Popular" query={popularMovieQuery} />
 
-      <MovieCarousel title="Top Rated" query={topRatedMovieQuery} />
+        <MovieCarousel title="Top Rated" query={topRatedMovieQuery} />
 
-      <MovieCarousel title="Upcoming" query={upcomingMovieQuery} />
+        <MovieCarousel title="Upcoming" query={upcomingMovieQuery} />
+      </div>
     </div>
   );
 };

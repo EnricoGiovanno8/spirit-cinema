@@ -69,8 +69,8 @@ const MovieCarousel = ({ title, query }: MovieCarouselProps): React.ReactNode =>
   const [showRightArrow, setShowRightArrow] = useState(true);
 
   return (
-    <section>
-      <h2 className="text-xl text-white font-bold mb-4">{title}</h2>
+    <section data-testid="movie-carousel">
+      <h2 className="text-xl text-spirit-blue font-bold mb-4">{title}</h2>
       {renderMovies({
         query,
         scrollContainerRef,

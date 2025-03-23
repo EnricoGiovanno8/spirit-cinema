@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
-import MovieCarousel from '../../../src/components/MovieCarousel';
+import { MovieCarousel } from '../../../src/components';
 import { MovieQueryResult } from '../../../src/index.types';
 
 vi.mock('react', () => ({

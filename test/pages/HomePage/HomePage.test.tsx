@@ -14,11 +14,15 @@ vi.mock('@tanstack/react-query', async () => {
 
 describe('HomePage', () => {
   it('should render without crashing', () => {
-    const { getByText } = render(<HomePage />);
+    const { getByText, getAllByTestId, getByTestId } = render(<HomePage />);
 
     expect(getByText('Now Playing')).toBeDefined();
     expect(getByText('Popular')).toBeDefined();
     expect(getByText('Top Rated')).toBeDefined();
     expect(getByText('Upcoming')).toBeDefined();
+    const movieCarousels = getAllByTestId('movie-carousel');
+    expect(movieCarousels.length).toEqual(4);
+    const navbar = getByTestId('navbar');
+    expect(navbar).toBeDefined();
   });
 });
